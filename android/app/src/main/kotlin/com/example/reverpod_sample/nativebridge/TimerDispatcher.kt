@@ -1,36 +1,40 @@
 package com.example.reverpod_sample.nativebridge
 
-import kotlinx.coroutines.*
-
-import android.app.Activity
-import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.common.EventChannel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 import java.util.Date
 
-object NativeBridgePlugin {
-
-    private var eventSink: EventChannel.EventSink? = null
-
+object TimerDispatcher {
     private var coroutineScope: CoroutineScope? = null
     private var sendingJob: Job? = null
+    private var sink: EventChannel.EventSink? = null
 
-    fun register(activity: Activity, messenger: BinaryMessenger) {
-        MethodCallHandler.setup(messenger)
-        EventStreamHandler.setup(messenger)
+    fun setSink(s: EventChannel.EventSink?) {
+        sink = s
     }
 
-    private fun startSending() {
+    fun clearSink() {
+        stop()
+        sink = null
+    }
+
+    fun start() {
         if (sendingJob != null) return
         coroutineScope = CoroutineScope(Dispatchers.Main)
         sendingJob = coroutineScope?.launch {
             while (isActive) {
-                eventSink?.success("from Android at ${Date()}")
+                sink?.success("from Android at ${Date()}")
                 delay(3000)
             }
         }
     }
 
-    private fun stopSending() {
+    fun stop() {
         sendingJob?.cancel()
         sendingJob = null
         coroutineScope = null
