@@ -1,10 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reverpod_sample/core/native/native_bridge.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-class NativeTimerViewModel extends AutoDisposeNotifier<bool> {
+part 'native_timer_view_model.g.dart';
+
+@riverpod
+class NativeTimerViewModel extends _$NativeTimerViewModel {
   StreamSubscription<String>? _timerSubscription;
 
   @override

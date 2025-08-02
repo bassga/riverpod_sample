@@ -4,17 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reverpod_sample/core/native/native_bridge.dart';
-import 'package:reverpod_sample/features/counter/provider/counter_provider.dart';
+import 'package:reverpod_sample/features/counter/view_model/counter_view_model.dart';
+import 'package:reverpod_sample/features/counter/view_model/native_timer_view_model.dart';
 
 class CounterScreen extends HookConsumerWidget {
   const CounterScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final count = ref.watch(counterProvider);
-    final counter = ref.read(counterProvider.notifier);
+    final count = ref.watch(counterViewModelProvider);
+    final counter = ref.read(counterViewModelProvider.notifier);
 
-    bool isRunning = ref.watch(nativeTimerProvider);
-    final timerController = ref.read(nativeTimerProvider.notifier);
+    bool isRunning = ref.watch(nativeTimerViewModelProvider);
+    final timerController = ref.read(nativeTimerViewModelProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(title: const Text('Counter')),
