@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reverpod_sample/core/native/native_bridge.dart';
 import 'package:reverpod_sample/features/counter/view_model/counter_view_model.dart';
 import 'package:reverpod_sample/features/counter/view_model/native_timer_view_model.dart';
+import 'package:reverpod_sample/features/counter/widgets/counter_value_text.dart';
 
 class CounterScreen extends HookConsumerWidget {
   const CounterScreen({super.key});
@@ -23,7 +24,7 @@ class CounterScreen extends HookConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Counter Value: $count'),
+            CounterValueText(count),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: counter.increment,
