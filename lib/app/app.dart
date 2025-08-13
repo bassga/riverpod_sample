@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reverpod_sample/app/router.dart';
+import 'package:reverpod_sample/core/design/app_theme_extention.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
@@ -10,6 +11,9 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Riverpod MVVM Sample',
       routerConfig: router,
+      theme: ThemeData(
+        extensions: const [AppSpacingTheme(page: 24, section: 24, inside: 8)],
+      ),
     );
   }
 }
