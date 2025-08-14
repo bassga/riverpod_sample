@@ -34,7 +34,7 @@ class ZipRepository {
       );
     }
 
-    print(response.data);
+    if (response.data == null) return null;
     final raw = response.data;
     final Map<String, dynamic> data = raw is String
         ? jsonDecode(raw) as Map<String, dynamic>

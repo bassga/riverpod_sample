@@ -2,15 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:reverpod_sample/core/design/app_theme_extention.dart';
 
 class Section extends StatelessWidget {
-  const Section({
-    super.key,
-    required this.title,
-    required this.child,
-    this.leading,
-  });
+  const Section({super.key, required this.title, required this.child});
   final String title;
   final Widget child;
-  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {

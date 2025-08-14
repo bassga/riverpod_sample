@@ -17,6 +17,7 @@ class ZipSearchSection extends HookConsumerWidget {
     return Section(
       title: '郵便番号検索',
       child: SpacedColumn(
+        gap: 12,
         children: [
           TextField(
             controller: zipController,
@@ -26,7 +27,6 @@ class ZipSearchSection extends HookConsumerWidget {
               hintText: '例: 100-0001',
             ),
           ),
-          const SizedBox(height: 12),
           Row(
             children: [
               FilledButton(
@@ -35,7 +35,6 @@ class ZipSearchSection extends HookConsumerWidget {
                     : () => zipNotifier.searchZip(zipController.text),
                 child: Text(zipState.isLoading ? '検索中...' : '検索'),
               ),
-              const SizedBox(width: 12),
               OutlinedButton(
                 onPressed: () {
                   zipController.clear();
@@ -44,7 +43,6 @@ class ZipSearchSection extends HookConsumerWidget {
               ),
             ],
           ),
-          const SizedBox(height: 12),
           zipState.when(
             data: (zip) {
               if (zip == null) return const Text('結果なし');

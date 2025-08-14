@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:reverpod_sample/core/layout/section.dart';
 import 'package:reverpod_sample/core/native/native_bridge.dart';
+import 'package:reverpod_sample/core/widgets/spaced_column.dart';
 import 'package:reverpod_sample/features/counter/view_model/native_timer_view_model.dart';
 
 class NativeDemoSection extends ConsumerWidget {
@@ -14,8 +15,7 @@ class NativeDemoSection extends ConsumerWidget {
 
     return Section(
       title: 'Native Demo',
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: SpacedColumn(
         children: [
           ElevatedButton(
             onPressed: () async {
@@ -33,12 +33,10 @@ class NativeDemoSection extends ConsumerWidget {
             },
             child: const Text('Call Native Method'),
           ),
-          const SizedBox(height: 8),
           ElevatedButton(
             onPressed: () => timer.toggleTimer(context),
             child: Text(isRunning ? 'Stop Native Timer' : 'Start Native Timer'),
           ),
-          const SizedBox(height: 8),
           OutlinedButton(
             onPressed: () => context.push('/detail'),
             child: const Text('Go to Detail'),
