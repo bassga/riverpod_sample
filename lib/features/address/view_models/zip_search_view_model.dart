@@ -1,4 +1,4 @@
-import 'package:reverpod_sample/address/domain/zip_address.dart';
+import 'package:reverpod_sample/core/domain/zip_address.dart';
 import 'package:reverpod_sample/features/address/data/zip_repository.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 

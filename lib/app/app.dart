@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reverpod_sample/app/router.dart';
-import 'package:reverpod_sample/core/design/app_theme_extention.dart';
+import 'package:reverpod_sample/core/design/app_theme_extension.dart';
 
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});

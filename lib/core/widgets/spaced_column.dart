@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reverpod_sample/core/design/app_theme_extention.dart';
+import 'package:reverpod_sample/core/design/app_theme_extension.dart';
 
 class SpacedColumn extends StatelessWidget {
   const SpacedColumn({super.key, required this.children, this.gap});
