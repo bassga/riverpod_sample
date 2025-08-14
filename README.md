@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 - riverpod_generator
 
 ```shell
-flutter pub build_runner -d
+flutter pub run build_runner build -d
 ```
 
 ### storybook

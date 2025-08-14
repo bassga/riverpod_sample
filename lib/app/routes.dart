@@ -4,5 +4,5 @@ import 'package:reverpod_sample/features/counter/view/counter_screen.dart';
 
 final appRoutes = <GoRoute>[
   GoRoute(path: '/', builder: (_, __) => const CounterScreen()),
-  GoRoute(path: '/login', builder: (_, __) => const CounterDetailScreen()),
+  GoRoute(path: '/detail', builder: (_, __) => const CounterDetailScreen()),
 ];

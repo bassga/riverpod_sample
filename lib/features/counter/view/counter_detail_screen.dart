@@ -1,31 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:reverpod_sample/core/layout/app_page.dart';
+import 'package:reverpod_sample/features/counter/view/sections/return_home_section.dart';
 
 class CounterDetailScreen extends StatelessWidget {
   const CounterDetailScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Detail')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('This is the detail screen'),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () {
-                if (context.canPop()) {
-                  context.pop();
-                } else {
-                  context.go('/');
-                }
-              },
-              child: const Text('戻る'),
-            ),
-          ],
-        ),
+    return const AppPage(
+      title: 'Detail',
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [Text('This is the detail screen'), ReturnHomeSection()],
       ),
     );
   }
