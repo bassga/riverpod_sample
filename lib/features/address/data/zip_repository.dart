@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:reverpod_sample/address/domain/zip_address.dart';
@@ -35,12 +33,9 @@ class ZipRepository {
     }
 
     if (response.data == null) return null;
-    final raw = response.data;
-    final Map<String, dynamic> data = raw is String
-        ? jsonDecode(raw) as Map<String, dynamic>
-        : raw as Map<String, dynamic>;
 
-    final results = data['results'] as List<dynamic>?;
+    final map = response.data as Map<String, dynamic>;
+    final results = map['results'] as List<dynamic>?;
     if (results == null || results.isEmpty) return null;
 
     final first = results.first as Map<String, dynamic>;
