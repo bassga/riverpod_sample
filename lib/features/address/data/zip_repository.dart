@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:reverpod_sample/address/domain/zip_address.dart';
+import 'package:reverpod_sample/core/domain/zip_address.dart';
 import 'package:reverpod_sample/core/network/dio_provider.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
